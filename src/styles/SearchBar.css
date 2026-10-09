@@ -1,0 +1,96 @@
+.searchbar {
+  display: flex;
+  gap: 10px;
+  background: rgba(20,20,31,0.7);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 16px;
+  padding: 8px;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 8px 40px rgba(0,0,0,0.5);
+  position: relative;
+  overflow: hidden;
+}
+
+.searchbar::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  background: conic-gradient(from 0deg, #ff0080, #00ffea, #ffcc00, #ff0080);
+  z-index: -1;
+  filter: blur(14px);
+  opacity: .55;
+  animation: spin 6s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.searchbar input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  padding: 14px 16px;
+  color: var(--txt);
+  font-size: 1rem;
+}
+
+.searchbar input::placeholder { color: var(--muted); }
+
+.searchbar button {
+  padding: 0 26px;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #ff0080, #7a00ff, #00ffea);
+  background-size: 200% 200%;
+  color: #0a0a12;
+  font-weight: 800;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: transform .15s, background-position .6s;
+  animation: gradientMove 4s ease infinite;
+}
+
+@keyframes gradientMove {
+  0%,100% { background-position: 0% 50%; }
+  50%     { background-position: 100% 50%; }
+}
+
+.searchbar button:hover:not(:disabled) { transform: scale(1.04); }
+.searchbar button:disabled { opacity: .55; cursor: not-allowed; }
+
+/* Skeleton */
+.skeleton-card {
+  display: flex;
+  gap: 18px;
+  background: rgba(20,20,31,0.6);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 18px;
+  padding: 16px;
+}
+
+.sk-thumb {
+  width: 180px;
+  height: 110px;
+  border-radius: 12px;
+  flex-shrink: 0;
+}
+
+.sk-info { flex: 1; display: flex; flex-direction: column; gap: 10px; }
+.sk-line { height: 14px; border-radius: 6px; }
+.sk-title { width: 70%; }
+.sk-sub   { width: 40%; height: 11px; }
+.sk-btns  { display: flex; gap: 10px; margin-top: 8px; }
+.sk-btn   { width: 90px; height: 34px; border-radius: 10px; }
+
+.sk-thumb, .sk-line, .sk-btn {
+  background: linear-gradient(90deg, #1c1c2a 0%, #2a2a42 50%, #1c1c2a 100%);
+  background-size: 200% 100%;
+  animation: shimmer 1.4s infinite;
+}
+
+@keyframes shimmer {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}

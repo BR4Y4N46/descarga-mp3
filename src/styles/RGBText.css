@@ -1,0 +1,19 @@
+.rgb-text {
+  display: inline-block;
+  font-weight: 800;
+}
+
+.rgb-text > span {
+  display: inline-block;
+  color: #fff;
+  animation: rgbCycle 3s linear infinite;
+  text-shadow: 0 0 12px currentColor;
+}
+
+@keyframes rgbCycle {
+  0%   { color: #ff0080; text-shadow: 0 0 14px #ff0080; }
+  25%  { color: #00ffea; text-shadow: 0 0 14px #00ffea; }
+  50%  { color: #ffcc00; text-shadow: 0 0 14px #ffcc00; }
+  75%  { color: #7a00ff; text-shadow: 0 0 14px #7a00ff; }
+  100% { color: #ff0080; text-shadow: 0 0 14px #ff0080; }
+}
